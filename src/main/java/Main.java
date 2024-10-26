@@ -32,11 +32,14 @@ public class Main {
             int speedAvto;
             while (true) {
                 System.out.println("Введите скорость автомобиля №" + (i + 1));
-                speedAvto = scanner.nextInt();
-                if (speedAvto > 0 && speedAvto <= 250) {
-                    break;
+                if (scanner.hasNextInt()) {
+                    speedAvto = scanner.nextInt();
+                    if (speedAvto < 0 || speedAvto > 250) {
+                        System.out.println("Неверная скорость. Поробуйте снова пожалуйста.");
+                    } else {
+                        break;
+                    }
                 }
-                System.out.println("Неверная скорость. Поробуйте снова пожалуйста.");
             }
             scanner.nextLine();
             avtos[i] = new Avto(nameAvto, speedAvto);
